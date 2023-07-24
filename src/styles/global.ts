@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
     input[type=number] {
       -moz-appearance: textfield;
+      appearance: textfield;
     }
 
     html {

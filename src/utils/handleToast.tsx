@@ -8,6 +8,19 @@ const isBackEndError = (err: any): err is AxiosError<{ message: string }> => {
   return false;
 };
 
+const isStrapiError = (
+  err: any,
+): err is AxiosError<{
+  error: {
+    message: string;
+  };
+}> => {
+  if (err.response.data.error) {
+    return true;
+  }
+  return false;
+};
+
 const notifyError = (message: string) =>
   toast.error(message, {
     position: 'top-right',
@@ -20,11 +33,22 @@ const notifySuccess = (message: string) =>
   });
 
 function handleError(err: any) {
-  if (axios.isAxiosError(err) && isBackEndError(err)) {
-    return notifyError(err.response?.data.message as string);
+  if (axios.isAxiosError(err)) {
+    if (isStrapiError(err)) {
+      return notifyError(err.response?.data.error.message as string);
+    }
+
+    if (isBackEndError(err)) {
+      return notifyError(err.response?.data.message as string);
+    }
   }
+
   if (err instanceof Error) {
     return notifyError(err.message);
+  }
+
+  if (typeof err === 'string') {
+    return notifyError(err);
   }
 }
 
