@@ -3,7 +3,6 @@ import { Input } from './styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   maskFunction: (value: string) => string;
-  width: string;
   placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -20,7 +19,6 @@ const MaskedInput: React.ForwardRefRenderFunction<HTMLInputElement, Props> = (
 
   return (
     <Input
-      width={width}
       type="text"
       className="form-control"
       onChange={(event: any) => handleMask(event)}

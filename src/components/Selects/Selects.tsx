@@ -17,13 +17,14 @@ export interface Options {
   label: string;
 }
 
-export const PeriodAndSectorSelect = ({
+export const ExampleSelect = ({
   placeholder,
   name,
   id,
   options,
   control,
   hasError,
+  defaultValue,
 }: SelectProps) => {
   return (
     <Controller
@@ -39,9 +40,11 @@ export const PeriodAndSectorSelect = ({
             components={{
               IndicatorSeparator: () => null,
             }}
+            noOptionsMessage={() => 'Sem opções'}
             className="basic-single"
             classNamePrefix="select"
             placeholder={placeholder}
+            defaultValue={defaultValue}
             isSearchable
             value={value}
             name={name}
@@ -51,71 +54,72 @@ export const PeriodAndSectorSelect = ({
               control: prev => ({
                 ...prev,
                 width: '100%',
-                minHeight: '2rem',
-                maxHeight: '2rem',
-                borderRadius: '1rem',
-                border: hasError ? '0.5px solid #F00' : '0.5px solid #989898',
-                outline: 'none !important',
-                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.08)',
-                fontSize: '0.75rem',
-                // fontFamily: 'Inter',
+                minHeight: '2.75rem',
+                maxHeight: '2.75rem',
+                background: '#fff',
+                borderRadius: '0.25rem',
+                border: hasError
+                  ? '0.5px solid #f76d3b'
+                  : '0.5px solid #141414',
+                fontSize: '1rem',
+                fontFamily: 'Roboto',
                 fontWeight: 400,
-                color: 'rgba(0, 0, 0, 0.4)',
+                color: '#141414',
               }),
-
               container: prev => ({
                 ...prev,
                 width: '100%',
-                minHeight: '2rem',
-                maxHeight: '2rem',
+                minHeight: '2.75rem',
+                maxHeight: '2.75rem',
                 padding: '0',
                 outline: 'none',
-                fontSize: '0.75rem',
-                // fontFamily: 'Inter',
+                fontSize: '1rem',
+                fontFamily: 'Roboto',
                 fontWeight: 400,
-                color: 'rgba(0, 0, 0, 0.4)',
+                color: '#141414',
               }),
               valueContainer: prev => ({
                 ...prev,
-                minHeight: '2rem',
-                maxHeight: '2rem',
-                padding: '0 0.625rem 0 0.625rem',
+                minHeight: '2.75rem',
+                maxHeight: '2.75rem',
+                padding: '0 1rem 0 1rem',
               }),
               indicatorsContainer: prev => ({
                 ...prev,
-                minHeight: '2rem',
-                maxHeight: '2rem',
+                minHeight: '2.75rem',
+                maxHeight: '2.75rem',
               }),
               placeholder: prev => ({
                 ...prev,
-                color: 'rgba(0, 0, 0, 0.4)',
+                color: '#D4D4D4',
               }),
               menu: prev => ({
                 ...prev,
-                fontSize: '0.75rem',
-                // fontFamily: 'Inter',
+                fontSize: '1rem',
+                fontFamily: 'Roboto',
                 fontWeight: 400,
-                color: 'rgba(0, 0, 0, 0.4)',
+                color: '#D4D4D4',
+                backgroundColor: '#fff',
                 borderRadius: '0.25rem',
                 boxShadow: 'none !important',
-                border: '0.5px solid #989898',
+                border: '0.5px solid #141414',
                 outline: 'none !important',
               }),
               singleValue: prev => ({
                 ...prev,
-                fontSize: '0.75rem',
-                // fontFamily: 'Inter',
+                fontSize: '1rem',
+                fontFamily: 'Roboto',
                 fontWeight: 400,
-                color: '#272727',
+                color: '#141414',
               }),
               option: prev => ({
                 ...prev,
                 backgroundColor: '#fff',
-                color: 'rgba(0, 0, 0, 0.4)',
+                color: '#d4d4d4',
               }),
               dropdownIndicator: prev => ({
                 ...prev,
-                color: '#5496FF',
+                color: '#141414',
               }),
             }}
           />
