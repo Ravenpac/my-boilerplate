@@ -10,6 +10,7 @@ interface SelectProps {
   options: Options[];
   control: any;
   hasError?: boolean;
+  defaultValue?: Options;
 }
 
 export interface Options {
