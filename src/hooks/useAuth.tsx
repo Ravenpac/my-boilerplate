@@ -43,7 +43,7 @@ const AuthProvider = ({ children }: ChildrenProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const dataUser = localStorage.getItem('@materialize:user');
+    const dataUser = localStorage.getItem('@token:user');
 
     if (dataUser) {
       setUser(JSON.parse(dataUser));
@@ -56,9 +56,9 @@ const AuthProvider = ({ children }: ChildrenProps) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('@materialize:user');
-    localStorage.removeItem('@materialize:accessToken');
-    localStorage.removeItem('@materialize:refreshToken');
+    localStorage.removeItem('@token:user');
+    localStorage.removeItem('@token:accessToken');
+    localStorage.removeItem('@token:refreshToken');
     setUser({} as User);
   };
 

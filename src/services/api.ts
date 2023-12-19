@@ -9,7 +9,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   async config => {
-    const accessToken = localStorage.getItem('@materialize:accessToken');
+    const accessToken = localStorage.getItem('@token:accessToken');
     if (accessToken) {
       config.headers!.Authorization = `Bearer ${accessToken}`;
     }
@@ -22,14 +22,14 @@ export default api;
 
 export async function refreshAccessToken() {
   try {
-    const credentials = localStorage.getItem('@materialize:refreshToken');
+    const credentials = localStorage.getItem('@token:refreshToken');
 
     if (typeof credentials === 'string') {
       const { data } = await api.put('your-refresh-token-url', {
         refresh_token: credentials,
       });
-      localStorage.setItem('@materialize:accessToken', data.access_token);
-      localStorage.setItem('@materialize:refreshToken', data.refresh_token);
+      localStorage.setItem('@token:accessToken', data.access_token);
+      localStorage.setItem('@token:refreshToken', data.refresh_token);
       return data?.access_token;
     }
   } catch (error) {
