@@ -52,8 +52,8 @@ export const ExampleSelect = ({
             options={options}
             id={id}
             styles={{
-              control: prev => ({
-                ...prev,
+              control: (base: any) => ({
+                ...base,
                 width: '100%',
                 minHeight: '2.75rem',
                 maxHeight: '2.75rem',
@@ -67,8 +67,8 @@ export const ExampleSelect = ({
                 fontWeight: 400,
                 color: '#141414',
               }),
-              container: prev => ({
-                ...prev,
+              container: (base: any) => ({
+                ...base,
                 width: '100%',
                 minHeight: '2.75rem',
                 maxHeight: '2.75rem',
@@ -79,23 +79,23 @@ export const ExampleSelect = ({
                 fontWeight: 400,
                 color: '#141414',
               }),
-              valueContainer: prev => ({
-                ...prev,
+              valueContainer: (base: any) => ({
+                ...base,
                 minHeight: '2.75rem',
                 maxHeight: '2.75rem',
                 padding: '0 1rem 0 1rem',
               }),
-              indicatorsContainer: prev => ({
-                ...prev,
+              indicatorsContainer: (base: any) => ({
+                ...base,
                 minHeight: '2.75rem',
                 maxHeight: '2.75rem',
               }),
-              placeholder: prev => ({
-                ...prev,
+              placeholder: (base: any) => ({
+                ...base,
                 color: '#D4D4D4',
               }),
-              menu: prev => ({
-                ...prev,
+              menu: (base: any) => ({
+                ...base,
                 fontSize: '1rem',
                 fontFamily: 'Roboto',
                 fontWeight: 400,
@@ -106,20 +106,20 @@ export const ExampleSelect = ({
                 border: '0.5px solid #141414',
                 outline: 'none !important',
               }),
-              singleValue: prev => ({
-                ...prev,
+              singleValue: (base: any) => ({
+                ...base,
                 fontSize: '1rem',
                 fontFamily: 'Roboto',
                 fontWeight: 400,
                 color: '#141414',
               }),
-              option: prev => ({
-                ...prev,
+              option: (base: any) => ({
+                ...base,
                 backgroundColor: '#fff',
                 color: '#d4d4d4',
               }),
-              dropdownIndicator: prev => ({
-                ...prev,
+              dropdownIndicator: (base: any) => ({
+                ...base,
                 color: '#141414',
               }),
             }}
