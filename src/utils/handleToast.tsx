@@ -25,11 +25,17 @@ const notifyError = (message: string) =>
   toast.error(message, {
     position: 'top-right',
     autoClose: 5000,
+    style: {
+      zIndex: 99999999,
+    },
   });
 const notifySuccess = (message: string) =>
   toast.success(message, {
     position: 'top-right',
     autoClose: 5000,
+    style: {
+      zIndex: 99999999,
+    },
   });
 
 function handleError(err: any) {
