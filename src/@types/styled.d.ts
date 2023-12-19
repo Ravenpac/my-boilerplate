@@ -1,7 +1,15 @@
-import 'styled-components';
-import { theme } from '../styles/theme';
+declare module '*.otf';
 
-declare module 'styled-components' {
-  type ThemeType = typeof theme;
-  export interface DefaultTheme extends ThemeType {}
+declare interface Paginated<T> {
+  page: number;
+  results: T;
+  total: number;
+  limit: number;
 }
+
+declare interface LatLng {
+  lat: number;
+  lng: number;
+}
+
+declare type Translator = Record<string, string>;
